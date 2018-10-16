@@ -8,10 +8,14 @@ import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
+import { ListeFilmComponent } from './liste-film/liste-film.component';
+import { AfficheFilmComponent } from './affiche-film/affiche-film.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ListeFilmComponent,
+    AfficheFilmComponent
   ],
   imports: [
     BrowserModule,

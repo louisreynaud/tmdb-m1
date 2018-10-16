@@ -1,10 +1,16 @@
-<h1>TMDB + Firebase</h1>
+
 <nav *ngIf="user">
-  <label>{{user.displayName}}</label>
-  <img [src]="user.photoURL" />
-  <button (click)="logout()">Déconnection</button>
-  {{user.uid}}
+  <li>
+    <label>{{user.displayName}}</label>
+    <img class="photoUser" [src]="user.photoURL" />
+    <button (click)="logout()">Déconnection</button>
+    {{user.uid}}
+  </li>
+  <li>
+
+  </li>
 </nav>
+
 <nav *ngIf="!user">
   <button (click)="login()">Connection via Google</button>
 </nav>

@@ -5,12 +5,12 @@
 export const environment = {
   production: false,
   firebase:  {
-    apiKey: "XXX",
-    authDomain: "XXX",
-    databaseURL: "XXX",
-    projectId: "XXX",
-    storageBucket: "XXX",
-    messagingSenderId: "XXX"
+    apiKey: "AIzaSyAgcmPkusH8XtfzuY7ly1-iOdQ2HRFodoE",
+    authDomain: "bibliovid-e7b05.firebaseapp.com",
+    databaseURL: "https://bibliovid-e7b05.firebaseio.com",
+    projectId: "bibliovid-e7b05",
+    storageBucket: "bibliovid-e7b05.appspot.com",
+    messagingSenderId: "1037495846409"
   }
 };
 
