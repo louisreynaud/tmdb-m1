@@ -1,30 +1,36 @@
-
-<nav *ngIf="user">
-  <li>
-    <label>{{user.displayName}}</label>
-    <img class="photoUser" [src]="user.photoURL" />
-    <button (click)="logout()">Déconnection</button>
-    {{user.uid}}
-  </li>
-  <li>
-
-  </li>
+<!-- Barre de navigation du haut -->
+<nav *ngIf="user" class="navbar">
+  <ul>
+    <li>
+      <img class="photoUser" [src]="user.photoURL" />
+    </li>
+    <li>
+      <label>{{user.displayName}}</label><br>
+      <button (click)="logout()">Déconnection</button>
+    </li>
+    <li>
+      <!-- {{user.uid}} -->
+      <input type="text" placeholder="Rechercher films ...">
+    </li>
+  </ul>
 </nav>
 
-<nav *ngIf="!user">
+<nav *ngIf="!user" class="navbar">
   <button (click)="login()">Connection via Google</button>
 </nav>
 
 <hr/>
 <pre *ngIf="lists">
-  {{lists | async | json}}
+<!--  {{lists | async | json}} -->
 </pre>
 
 <hr/>
 <section *ngIf="movie">
-  <img [src]="getPath(movie.poster_path)" />
-  <pre>{{movie | json}}</pre>
+  <img [src]="getPath(movie.poster_path)"/>
+  <div> {{movie.original_title}}</div>
+  <!-- <pre>{{movie | json}}</pre> -->
 </section>
+
 <section *ngIf="!movie">
   Pas encore de films à afficher...
 </section>

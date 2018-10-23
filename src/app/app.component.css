@@ -3,8 +3,25 @@ body {
 }
 
 .photoUser {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100px;
+  width: 100%;
+  max-width: 68px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar ul li {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  width: auto;
+  max-height: 100px;
 }
