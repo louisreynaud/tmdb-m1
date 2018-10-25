@@ -10,12 +10,14 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import { ListeFilmComponent } from './liste-film/liste-film.component';
 import { AfficheFilmComponent } from './affiche-film/affiche-film.component';
+import {ProfilUtilisateurComponent} from './profile-utilisateur/profil-utilisateur.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListeFilmComponent,
-    AfficheFilmComponent
+    AfficheFilmComponent,
+    ProfilUtilisateurComponent
   ],
   imports: [
     BrowserModule,
