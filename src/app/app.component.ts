@@ -6,6 +6,7 @@ import {auth, User} from 'firebase';
 import {Observable} from 'rxjs';
 import {AngularFireDatabase} from '@angular/fire/database';
 import {filter} from 'rxjs/operators';
+import {SearchMovieQuery, SearchMovieResponse} from './tmdb-data/searchMovie';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,8 @@ export class AppComponent {
   private _user: User;
   private dbData: Observable<any>;
   private film: MovieResponse;
+  private searchReponse: SearchMovieResponse;
+  private mytmdb: TmdbService;
 
   constructor(private tmdb: TmdbService, public anAuth: AngularFireAuth, private db: AngularFireDatabase) {
     this.anAuth.user.pipe(filter( u => !!u )).subscribe( u => {
@@ -25,6 +28,7 @@ export class AppComponent {
       const lists = db.list(listsPath);
       lists.push('coucou');
       this.dbData = lists.valueChanges();
+      this.mytmdb = tmdb;
     });
     setTimeout( () =>
       tmdb.init('f2082ef60dbbdc7cae271950483930f1') // Clef de TMDB
@@ -32,7 +36,6 @@ export class AppComponent {
           .then( (m: MovieResponse) => console.log('Movie 13:', this._movie = m) )
           .catch( err => console.error('Error getting movie:', err) ),
       1000 );
-
   }
 
   getFilm(): MovieResponse {
@@ -42,6 +45,8 @@ export class AppComponent {
   get movie(): MovieResponse {
     return this._movie;
   }
+
+
 
   getPath(path: string): string {
     return `https://image.tmdb.org/t/p/w500${path}`;
@@ -62,6 +67,38 @@ export class AppComponent {
 
   get lists(): Observable<any> {
     return this.dbData;
+  }
+
+  get searchR(): SearchMovieResponse {
+    return this.searchReponse;
+  }
+
+  chercheFilm(name: string) {
+    this._movie = null;
+    setTimeout( () =>
+        this.mytmdb.init('f2082ef60dbbdc7cae271950483930f1') // Clef de TMDB
+          .searchMovie(new class implements SearchMovieQuery {
+            include_adult: boolean;
+            language: string;
+            page: number;
+            primary_release_year: number;
+            query: string = name;
+            region: string;
+            year: number;
+          })
+          .then( (m: SearchMovieResponse) => console.log('test reponse', this.searchReponse = m) )
+          .catch( err => console.error('Error getting movie:', err) ),
+      1000 );
+    event.preventDefault();
+  }
+
+  getIfFilms(res: object[]): boolean {
+    return (res.length !== 0);
+  }
+
+  getConsole(text: string) {
+    console.log(text);
+    event.preventDefault();
   }
 }
 // /yE5d3BUhE8hCnkMUJOo1QDoOGNz.jpg

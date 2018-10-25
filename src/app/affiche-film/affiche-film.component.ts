@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {MovieResult} from '../tmdb-data/searchMovie';
 
 @Component({
   selector: 'app-affiche-film',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AfficheFilmComponent implements OnInit {
 
+  @Input() monFilm: MovieResult;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  getDesc(): string {
+    console.log(this.monFilm.overview);
+    return this.monFilm.overview;
+  }
+
+  getConsole(text: string) {
+    console.log(text);
+    event.preventDefault();
+  }
 }

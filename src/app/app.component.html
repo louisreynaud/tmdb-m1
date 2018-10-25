@@ -10,7 +10,9 @@
     </li>
     <li>
       <!-- {{user.uid}} -->
-      <input type="text" placeholder="Rechercher films ...">
+      <form  (submit)="chercheFilm(filmrecherche.value)">
+        <input #filmrecherche type="text" placeholder="Rechercher films ...">
+      </form>
     </li>
   </ul>
 </nav>
@@ -21,17 +23,9 @@
 
 <hr/>
 <pre *ngIf="lists">
-<!--  {{lists | async | json}} -->
+    <!--  {{lists | async | json}} -->
 </pre>
 
-<hr/>
-<section *ngIf="movie">
-  <img [src]="getPath(movie.poster_path)"/>
-  <div> {{movie.original_title}}</div>
-  <!-- <pre>{{movie | json}}</pre> -->
-</section>
-
-<section *ngIf="!movie">
-  Pas encore de films à afficher...
-</section>
-
+<div *ngIf="searchR">
+  <app-liste-film *ngIf="getIfFilms(searchR.results)" [mesFilms]="searchR.results"></app-liste-film>
+</div>

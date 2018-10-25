@@ -1,0 +1,17 @@
+.divList {
+  margin-left: 3%;
+  margin-right: 3%;
+  width: 94%;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.divList ul {
+  display: flex;
+  padding: 0;
+}
+
+.divList ul li {
+  list-style-type: none;
+  margin-right: 2px;
+}

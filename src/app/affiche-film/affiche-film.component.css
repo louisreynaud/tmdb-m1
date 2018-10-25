@@ -1,0 +1,84 @@
+.mainDiv {
+  height: 400px;
+  border-style: solid;
+  width: 250px;
+}
+
+.ligneDuHaut {
+  height: 10%;
+  display: flex;
+  width: 100%;
+}
+
+.titleHaut {
+  width: 60%;
+  text-align: center;
+  white-space: normal;
+}
+
+.noteHaut {
+  width: 30%;
+  text-align: right;
+}
+
+.divImg {
+  height: 80%;
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.divImg img {
+  width: 210px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.divImg:hover .divImgText {
+  position: absolute;
+  visibility: initial;
+
+  top: 0;
+  left: 20px;
+
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+
+  padding: 5px;
+  width: 200px;
+  height: 305px;
+
+  white-space: normal;
+  word-break: break-word;
+  font-size: 16px;
+  overflow: hidden;
+}
+
+.divImgText {
+  visibility: hidden;
+}
+
+.ligneDuBas {
+  height: 10%;
+  display: flex;
+}
+
+.divToSee {
+  width: 32px;
+  height: 100%;
+  left: 0;
+}
+
+.divToSee input {
+  width: 100%;
+}
+
+.divFav {
+  width: 32px;
+  height: 100%;
+  right: 0;
+}
+
+.divFav input {
+  width: 100%;
+}
