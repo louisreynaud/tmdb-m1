@@ -13,5 +13,4 @@ export class ListeFilmComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

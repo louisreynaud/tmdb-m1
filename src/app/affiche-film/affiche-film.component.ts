@@ -15,6 +15,15 @@ export class AfficheFilmComponent implements OnInit {
   ngOnInit() {
   }
 
+  addFav(event) {
+    event.target.classList.addClass('divFavDisabled');
+    event.target.classList.removeClass('divFavEnabled');
+  }
+
+  removeFav(event) {
+
+  }
+
   getDesc(): string {
     console.log(this.monFilm.overview);
     return this.monFilm.overview;

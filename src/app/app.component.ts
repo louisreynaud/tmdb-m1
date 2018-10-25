@@ -86,7 +86,7 @@ export class AppComponent {
             region: string;
             year: number;
           })
-          .then( (m: SearchMovieResponse) => console.log('test reponse', this.searchReponse = m) )
+          .then( (m: SearchMovieResponse) => this.searchReponse = m)
           .catch( err => console.error('Error getting movie:', err) ),
       1000 );
     event.preventDefault();

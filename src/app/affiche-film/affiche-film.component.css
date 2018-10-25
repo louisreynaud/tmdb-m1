@@ -1,24 +1,27 @@
 .mainDiv {
-  height: 400px;
-  border-style: solid;
-  width: 250px;
+  height: 100%;
+  border: 1px solid;
+  width: 12em;
 }
 
 .ligneDuHaut {
-  height: 10%;
+  height: 15%;
   display: flex;
   width: 100%;
 }
 
 .titleHaut {
-  width: 60%;
-  text-align: center;
+  width: 70%;
   white-space: normal;
+  word-break: break-word;
+  font-size: 0.9em;
+  overflow: hidden;
 }
 
 .noteHaut {
   width: 30%;
   text-align: right;
+  right: 0;
 }
 
 .divImg {
@@ -26,59 +29,88 @@
   position: relative;
   text-align: center;
   color: white;
+  width: 100%;
 }
 
 .divImg img {
-  width: 210px;
-  padding-left: 20px;
-  padding-right: 20px;
+  height: 100%;
+  width: 90%;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 .divImg:hover .divImgText {
   position: absolute;
-  visibility: initial;
+  display: initial;
 
   top: 0;
-  left: 20px;
+  left: 5%;
 
   background: rgba(0, 0, 0, 0.5);
   color: #f1f1f1;
 
-  padding: 5px;
-  width: 200px;
-  height: 305px;
+  width: 90%;
+  height: 100%;
 
   white-space: normal;
   word-break: break-word;
   font-size: 16px;
   overflow: hidden;
+  overflow-y: auto;
 }
 
 .divImgText {
-  visibility: hidden;
+  display: none;
 }
 
 .ligneDuBas {
-  height: 10%;
+  height: 5%;
   display: flex;
+  width: 100%;
 }
 
-.divToSee {
-  width: 32px;
+.divToSeeEnabled {
+  display: initial;
+  width: 10%;
   height: 100%;
   left: 0;
 }
 
-.divToSee input {
-  width: 100%;
+.divToSeeDisabled {
+  display: none;
+  width: 10%;
+  height: 100%;
+  left: 0;
 }
 
-.divFav {
-  width: 32px;
+.divFavEnabled {
+  display: initial;
+  margin-left: 80%;
+  width: 10%;
   height: 100%;
   right: 0;
 }
 
-.divFav input {
+.divFavDisabled {
+  display: none;
+  margin-left: 80%;
+  width: 10%;
+  height: 100%;
+  right: 0;
+}
+
+.divToSeeEnabled input {
+  width: 100%;
+}
+
+.divToSeeDisabled input {
+  width: 100%;
+}
+
+.divFavDisabled input {
+  width: 100%;
+}
+
+.divFavEnabled input {
   width: 100%;
 }
