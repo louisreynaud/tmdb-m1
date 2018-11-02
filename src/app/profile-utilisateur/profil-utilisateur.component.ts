@@ -16,19 +16,4 @@ export class ProfilUtilisateurComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  getUser(): any {
-    const userId = firebase.auth().currentUser.uid;
-    return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
-      const username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
-    });
-  }
-
-  writeUserData(userId, Name, password, imageUrl):void {
-    firebase.database().ref('users/' + userId).set({
-      userName: name,
-      password: password,
-      profile_picture : imageUrl
-    });
-  }
 }
