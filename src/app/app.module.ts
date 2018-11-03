@@ -14,6 +14,7 @@ import { AfficheFilmComponent } from './affiche-film/affiche-film.component';
 import {ProfilUtilisateurComponent} from './profile-utilisateur/profil-utilisateur.component';
 import { SignUpComponent } from './signup/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import {AuthService} from './app.service.auth';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { SignInComponent } from './sign-in/sign-in.component';
     AngularFireAuthModule,
     AngularFireDatabaseModule
   ],
-  providers: [TmdbService],
+  providers: [TmdbService,
+  AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

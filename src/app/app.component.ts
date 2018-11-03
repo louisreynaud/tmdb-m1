@@ -20,6 +20,9 @@ export class AppComponent {
   private film: MovieResponse;
   private searchReponse: SearchMovieResponse;
   private mytmdb: TmdbService;
+  private signInbool: boolean;
+  private signUpbool: boolean;
+
 
   constructor(private tmdb: TmdbService, public anAuth: AngularFireAuth, private db: AngularFireDatabase) {
     this.anAuth.user.pipe(filter( u => !!u )).subscribe( u => {
@@ -36,6 +39,8 @@ export class AppComponent {
           .then( (m: MovieResponse) => console.log('Movie 13:', this._movie = m) )
           .catch( err => console.error('Error getting movie:', err) ),
       1000 );
+    this.signUpbool = false;
+    this.signInbool = false;
   }
 
   getFilm(): MovieResponse {
@@ -50,6 +55,16 @@ export class AppComponent {
 
   getPath(path: string): string {
     return `https://image.tmdb.org/t/p/w500${path}`;
+  }
+
+  signUp() {
+    this.signUpbool = true;
+    this.signInbool = false;
+  }
+
+  signIn() {
+    this.signInbool = true;
+    this.signUpbool = false;
   }
 
   login() {
@@ -71,6 +86,14 @@ export class AppComponent {
 
   get searchR(): SearchMovieResponse {
     return this.searchReponse;
+  }
+
+  get signUpBool(): boolean {
+    return this.signUpbool;
+  }
+
+  get signInBool(): boolean {
+    return this.signInbool;
   }
 
   chercheFilm(name: string) {

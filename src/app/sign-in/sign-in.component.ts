@@ -14,8 +14,7 @@ export class SignInComponent implements OnInit {
   errorMessage: string;
 
   constructor(private formBuilder: FormBuilder,
-              private authService: AuthService,
-              private router: Router) { }
+              private authService: AuthService) { }
 
   ngOnInit() {
     this.initForm();
@@ -32,13 +31,6 @@ export class SignInComponent implements OnInit {
     const email = this.signInForm.get('email').value;
     const password = this.signInForm.get('password').value;
 
-    this.authService.createNewUser(email, password).then(
-      () => {
-        this.router.navigate(['/books']);
-      },
-      (error) => {
-        this.errorMessage = error;
-      }
-    );
+    this.authService.signInUser(email, password);
   }
 }
