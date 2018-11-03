@@ -9,29 +9,39 @@ import {MovieResult} from '../tmdb-data/searchMovie';
 export class AfficheFilmComponent implements OnInit {
 
   @Input() monFilm: MovieResult;
-  toggle: boolean;
+  showToSee: boolean;
+  showToUnsee: boolean;
+  showToFav: boolean;
+  showToUnfav: boolean;
 
   constructor() {
-    this.toggle = true;
+    this.showToSee = true;
+    this.showToUnsee = false;
+    this.showToFav = true;
+    this.showToUnfav = false;
   }
 
   ngOnInit() {
   }
 
-  addFav(event) {
-
+  addSee() {
+    this.showToSee = false;
+    this.showToUnsee = true;
   }
 
-  removeFav(event) {
-
+  removeSee() {
+    this.showToSee = true;
+    this.showToUnsee = false;
   }
 
-  addSee(event) {
-
+  addFav() {
+    this.showToFav = false;
+    this.showToUnfav = true;
   }
 
-  removeSee(event) {
-
+  removeFav() {
+    this.showToFav = true;
+    this.showToUnfav = false;
   }
 
   getDesc(): string {

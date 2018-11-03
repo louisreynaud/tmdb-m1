@@ -69,36 +69,32 @@
   width: 100%;
 }
 
-.divToSeeEnabled {
-  display: initial;
+.divToSee {
+  width: 50%;
 }
 
-.divToSeeDisabled {
-  display: none;
-  width: 10%;
-  height: 100%;
-  left: 0;
+.divFav {
+  width: 50%;
 }
 
-.divFavEnabled {
-  display: initial;
-}
-
-.divFavDisabled {
-  display: none;
-  margin-left: 80%;
-  width: 10%;
-  height: 100%;
-  right: 0;
-}
-
-#btnFav {
+.btnSee {
   height: 90%;
   width: 40%;
   margin-left: 3px;
 }
 
-#btnFav img {
+.btnSee img {
+  width: 100%;
+}
+
+.btnFav {
+  height: 90%;
+  width: 40%;
+  margin-right: 3px;
+  float: right;
+}
+
+.btnFav img {
   width: 100%;
 }
 
