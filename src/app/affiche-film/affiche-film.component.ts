@@ -9,23 +9,32 @@ import {MovieResult} from '../tmdb-data/searchMovie';
 export class AfficheFilmComponent implements OnInit {
 
   @Input() monFilm: MovieResult;
+  toggle: boolean;
 
-  constructor() { }
+  constructor() {
+    this.toggle = true;
+  }
 
   ngOnInit() {
   }
 
   addFav(event) {
-    event.target.classList.addClass('divFavDisabled');
-    event.target.classList.removeClass('divFavEnabled');
+
   }
 
   removeFav(event) {
 
   }
 
+  addSee(event) {
+
+  }
+
+  removeSee(event) {
+
+  }
+
   getDesc(): string {
-    console.log(this.monFilm.overview);
     return this.monFilm.overview;
   }
 

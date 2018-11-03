@@ -1,5 +1,5 @@
 .mainDiv {
-  height: 100%;
+  /*height: 100%;*/
   border: 1px solid;
   width: 12em;
 }
@@ -64,16 +64,13 @@
 }
 
 .ligneDuBas {
-  height: 5%;
+  max-height: 5%;
   display: flex;
   width: 100%;
 }
 
 .divToSeeEnabled {
   display: initial;
-  width: 10%;
-  height: 100%;
-  left: 0;
 }
 
 .divToSeeDisabled {
@@ -85,10 +82,6 @@
 
 .divFavEnabled {
   display: initial;
-  margin-left: 80%;
-  width: 10%;
-  height: 100%;
-  right: 0;
 }
 
 .divFavDisabled {
@@ -99,7 +92,13 @@
   right: 0;
 }
 
-.divToSeeEnabled input {
+#btnFav {
+  height: 90%;
+  width: 40%;
+  margin-left: 3px;
+}
+
+#btnFav img {
   width: 100%;
 }
 
@@ -107,10 +106,11 @@
   width: 100%;
 }
 
+.divFavEnabled input {
+  width: 100%;
+}
+
 .divFavDisabled input {
   width: 100%;
 }
 
-.divFavEnabled input {
-  width: 100%;
-}

@@ -18,10 +18,15 @@
 </nav>
 
 <nav *ngIf="!user" class="navbar">
-  <button (click)="login()">Connection via Google</button>
+  <ul>
+    <li>
+      <button (click)="login()">Connection via Google</button>
+    </li>
+  </ul>
 </nav>
 
 <hr/>
+
 <pre *ngIf="lists">
     <!--  {{lists | async | json}} -->
 </pre>

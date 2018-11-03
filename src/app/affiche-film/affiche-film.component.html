@@ -29,13 +29,21 @@
   </div>
 
   <div class="ligneDuBas">
+
     <div class="divToSeeEnabled">
-      <input type="image" src="https://image.flaticon.com/icons/svg/25/25186.svg" alt="ToSee">
+      <button id="btnFav"  class="divToSeeEnabled">
+        <img src="https://image.flaticon.com/icons/svg/25/25186.svg">
+      </button>
     </div>
-    <div class="divToSeeDisabled">
-      <input type="image" src="https://image.flaticon.com/icons/svg/25/25674.svg" alt="ToUnsee">
+<!--
+    <div class="divToSeeEnabled">
+      <input (click)="addFav($event)" type="image" src="https://image.flaticon.com/icons/svg/126/126471.svg" alt="Fav">
     </div>
 
+    <div [class]="{'divToSeeDisabled' : !toggle}">
+      <input type="image" src="https://image.flaticon.com/icons/svg/25/25674.svg" alt="ToUnsee">
+    </div>
+-->
     <div class="divFavEnabled">
       <input (click)="addFav($event)" type="image" src="https://image.flaticon.com/icons/svg/126/126471.svg" alt="Fav">
     </div>

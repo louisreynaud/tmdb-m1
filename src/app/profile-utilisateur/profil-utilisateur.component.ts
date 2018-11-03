@@ -11,6 +11,7 @@ import Database = firebase.database.Database;
 export class ProfilUtilisateurComponent implements OnInit {
 
   private database = firebase.database();
+  private
 
   constructor() { }
 
