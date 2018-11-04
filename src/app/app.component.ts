@@ -21,6 +21,10 @@ export class AppComponent {
   private film: MovieResponse;
   private searchReponse: SearchMovieResponse;
   private mytmdb: TmdbService;
+  private AoRevent: any[3];
+
+  private userPage: boolean;
+
 
   constructor(private tmdb: TmdbService, public anAuth: AngularFireAuth, private db: AngularFireDatabase) {
     this.anAuth.user.pipe(filter( u => !!u )).subscribe( u => {
@@ -30,6 +34,7 @@ export class AppComponent {
       lists.push('coucou');
       this.dbData = lists.valueChanges();
       this.mytmdb = tmdb;
+      this.userPage = false;
     });
     setTimeout( () =>
       tmdb.init('f2082ef60dbbdc7cae271950483930f1') // Clef de TMDB
@@ -37,6 +42,19 @@ export class AppComponent {
           .then( (m: MovieResponse) => console.log('Movie 13:', this._movie = m) )
           .catch( err => console.error('Error getting movie:', err) ),
       1000 );
+  }
+
+  goToUserPage() {
+    this.userPage = !this.userPage;
+    this.searchReponse = null;
+  }
+
+  get aoREvent() {
+    return this.AoRevent;
+  }
+
+  get userP(): boolean {
+    return this.userPage;
   }
 
   getFilm(): MovieResponse {
@@ -74,6 +92,7 @@ export class AppComponent {
 
   chercheFilm(name: string) {
     this._movie = null;
+    this.userPage = false;
     setTimeout( () =>
         this.mytmdb.init('f2082ef60dbbdc7cae271950483930f1') // Clef de TMDB
           .searchMovie(new class implements SearchMovieQuery {
@@ -99,5 +118,8 @@ export class AppComponent {
     console.log(text);
     event.preventDefault();
   }
+
+  receiveAoR(ev: any[3]) {
+    this.AoRevent = ev;
+  }
 }
-// /yE5d3BUhE8hCnkMUJOo1QDoOGNz.jpg

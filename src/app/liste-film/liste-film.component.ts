@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-liste-film',
@@ -10,6 +10,11 @@ export class ListeFilmComponent implements OnInit {
   constructor() { }
 
   @Input() mesFilms: any;
+  @Output() addOrRemoveEvent = new EventEmitter<any[3]>();
+
+  receiveAoR($event) {
+    this.addOrRemoveEvent.emit($event);
+  }
 
   ngOnInit() {
   }

@@ -1,10 +1,7 @@
-body {
-  background-color: lightgray;
-}
-
 .photoUser {
   width: 100%;
-  max-width: 68px;
+  height: 100%;
+  flex: 1;
 }
 
 .navbar ul {
@@ -13,6 +10,10 @@ body {
   padding: 0;
   overflow: hidden;
   background-color: #333;
+}
+
+.liPhotoUser {
+  max-width: 7%;
 }
 
 .navbar ul li {
@@ -24,4 +25,15 @@ body {
   text-decoration: none;
   width: auto;
   max-height: 100px;
+}
+
+.divContent {
+  margin-top: 5px;
+  width: 100%;
+}
+
+.btnUser {
+  padding: 0;
+  border: 0;
+  display: flex;
 }

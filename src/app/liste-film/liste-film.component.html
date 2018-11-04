@@ -1,7 +1,7 @@
 <div class="divList">
   <ul>
     <li *ngFor="let searchedfilm of mesFilms">
-      <app-affiche-film [monFilm]="searchedfilm"></app-affiche-film>
+      <app-affiche-film (addOrRemoveEvent)="receiveAoR($event)" [monFilm]="searchedfilm"></app-affiche-film>
     </li>
   </ul>
 </div>
