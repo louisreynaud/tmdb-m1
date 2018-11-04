@@ -2,6 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import * as firebase from 'firebase';
 import {UserResponse} from '../tmdb-data/User';
 import Database = firebase.database.Database;
+import {Observable} from 'rxjs';
+import {MovieResult} from '../tmdb-data/searchMovie';
 
 @Component({
   selector: 'app-profil-utilisateur',
@@ -11,7 +13,8 @@ import Database = firebase.database.Database;
 export class ProfilUtilisateurComponent implements OnInit {
 
   private database = firebase.database();
-  private
+  private listTosee: MovieResult[];
+  private listFav: MovieResult[];
 
   constructor() { }
 

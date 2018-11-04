@@ -13,6 +13,7 @@ import {SearchMovieQuery, SearchMovieResponse} from './tmdb-data/searchMovie';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   private _movie: MovieResponse;
   private _user: User;
@@ -45,8 +46,6 @@ export class AppComponent {
   get movie(): MovieResponse {
     return this._movie;
   }
-
-
 
   getPath(path: string): string {
     return `https://image.tmdb.org/t/p/w500${path}`;
