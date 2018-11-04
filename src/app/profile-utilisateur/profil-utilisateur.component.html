@@ -1,3 +1,13 @@
 <div *ngIf="activ">
-  profil utilisateur marche
+  Profil de {{onAuthUser.displayName}}
+  <div id="FavActor">
+    <ul>
+      <li>Mon acteur préféré:</li>
+      <li><img class="photoUser" [src]="favActor.photo" /></li>
+      <li>{{favActor.name}}</li>
+    </ul>
+  </div>
+
+  <div id="userLists"></div>
+
 </div>

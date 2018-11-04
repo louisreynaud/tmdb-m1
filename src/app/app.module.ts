@@ -15,6 +15,7 @@ import {ProfilUtilisateurComponent} from './profile-utilisateur/profil-utilisate
 import { SignUpComponent } from './signup/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import {AuthService} from './app.service.auth';
+import {PlaylistService} from './playlist.service';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import {AuthService} from './app.service.auth';
     AngularFireDatabaseModule
   ],
   providers: [TmdbService,
-  AuthService],
+  AuthService,
+  PlaylistService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
