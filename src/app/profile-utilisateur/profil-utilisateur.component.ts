@@ -1,9 +1,13 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {auth, User} from 'firebase';
 import * as firebase from 'firebase';
 import {UserResponse} from '../tmdb-data/User';
 import Database = firebase.database.Database;
 import {Observable} from 'rxjs';
-import {MovieResult} from '../tmdb-data/searchMovie';
+import {MovieResult, SearchMovieQuery, SearchMovieResponse} from '../tmdb-data/searchMovie';
+import {filter} from 'rxjs/operators';
+import {TmdbService} from '../tmdb.service';
+import {SearchPeopleQuery, SearchPeopleResponse} from '../tmdb-data/SearchPeople';
 
 @Component({
   selector: 'app-profil-utilisateur',
@@ -14,15 +18,30 @@ export class ProfilUtilisateurComponent implements OnInit {
 
   private database = firebase.database();
   private active: boolean;
+  private searchReponse: SearchPeopleResponse;
+  private mytmdb: TmdbService;
   private listTosee: MovieResult[];
   private listFav: MovieResult[];
+  private authUser: User;
+  private myFavActor: {
+    photo: string,
+    name: string
+  }
 
   constructor() {
     this.listTosee = [];
     this.listFav = [];
     this.active = false;
+    this.myFavActor = this.getFavAct();
   }
 
+  @Input() set tmdb(tmdb: TmdbService) {
+    this.mytmdb = tmdb;
+  }
+
+  @Input() set user(u: User) {
+    this.authUser = u;
+  }
   @Input()
   set actif(state: boolean) {
     this.active = state;
@@ -52,7 +71,10 @@ export class ProfilUtilisateurComponent implements OnInit {
       }
     }
   }
-
+  get onAuthUser() {
+    console.log(this.authUser);
+    return this.authUser;
+  }
   addMovieToSee(m: MovieResult) {
     this.listTosee.push(m);
   }
@@ -70,5 +92,31 @@ export class ProfilUtilisateurComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  cherchePerson() {
+    setTimeout(() =>
+        this.mytmdb.init('f2082ef60dbbdc7cae271950483930f1') // Clef de TMDB
+          .searchMovie(new class implements SearchPeopleQuery {
+            include_adult: boolean;
+            language: string;
+            page: number;
+            query: string;
+            region: string;
+          })
+          .then((m: SearchPeopleResponse) => this.searchReponse = m)
+          .catch(err => console.error('Error getting People:', err)),
+      1000);
+  }
+  getFavAct() {
+    this.cherchePerson();
+    console.log(this.searchReponse);
+    return{
+      photo: null,
+      name: null,
+    };
+  }
+  get favActor() {
+    return this.myFavActor;
   }
 }

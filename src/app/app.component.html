@@ -22,7 +22,7 @@
     </ul>
   </nav>
 
-  <app-profil-utilisateur [actif]="userP" [addOrRemove]="aoREvent"></app-profil-utilisateur>
+  <app-profil-utilisateur [actif]="userP" [addOrRemove]="aoREvent" [user]="user" [tmdb]="gtmdb"></app-profil-utilisateur>
 
   <div *ngIf="searchR" class="divContent">
     <app-liste-film  *ngIf="getIfFilms(searchR.results)" (addOrRemoveEvent)="receiveAoR($event)" [mesFilms]="searchR.results"></app-liste-film>

@@ -57,6 +57,10 @@ export class AppComponent {
     return this.userPage;
   }
 
+  get gtmdb(): TmdbService {
+    return this.mytmdb;
+  }
+
   getFilm(): MovieResponse {
     return this.film;
   }
