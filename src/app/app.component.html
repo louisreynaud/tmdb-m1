@@ -1,13 +1,23 @@
 <!-- Barre de navigation du haut -->
-<div *ngIf="user">
-  <nav class="navbar">
-    <ul>
-      <li class="liPhotoUser">
-        <button (click)="goToUserPage()" class="btnUser">
-          <img class="photoUser" [src]="user.photoURL" />
-        </button>
-      </li>
+<nav *ngIf="user" class="navbar">
+  <ul>
+    <li>
+      <img class="photoUser" [src]="user.photoURL" />
+    </li>
+    <li>
+      <label>{{user.displayName}}</label><br>
+      <button (click)="logout()">Déconnection</button>
+    </li>
+    <li>
+      <!-- {{user.uid}} -->
+      <form  (submit)="chercheFilm(filmrecherche.value)">
+        <input #filmrecherche type="text" placeholder="Rechercher films ...">
+      </form>
+    </li>
+  </ul>
+</nav>
 
+<<<<<<< HEAD
       <li>
         <label>{{user.displayName}}</label><br>
         <button (click)="logout()">Déconnection</button>
@@ -26,19 +36,25 @@
 
   <div *ngIf="searchR" class="divContent">
     <app-liste-film [listIdFav]=""  *ngIf="getIfFilms(searchR.results)"  (addOrRemoveEvent)="receiveAoR($event)" [mesFilms]="searchR.results"></app-liste-film>
+=======
+<nav *ngIf="!user" class="navbar">
+  <button (click)="login()">Connection via Google</button>
+  <button (click)="signIn()">Se Connecter</button>
+  <button (click)="signUp()">S'enregistrer</button>
+  <div *ngIf="signInBool">
+    <app-sign-in></app-sign-in>
+>>>>>>> ebcd62073914d329d2b1cdbe8fce3a3c50521807
   </div>
-</div>
+  <div *ngIf="signUpBool">
+    <app-signup></app-signup>
+  </div>
+</nav>
 
-<div *ngIf="!user">
-  <nav class="navbar">
-    <ul>
-      <li>
-        <button (click)="login()">Connection via Google</button>
-      </li>
-    </ul>
-  </nav>
-</div>
-
+<hr/>
 <pre *ngIf="lists">
     <!--  {{lists | async | json}} -->
 </pre>
+
+<div *ngIf="searchR">
+  <app-liste-film *ngIf="getIfFilms(searchR.results)" [mesFilms]="searchR.results"></app-liste-film>
+</div>

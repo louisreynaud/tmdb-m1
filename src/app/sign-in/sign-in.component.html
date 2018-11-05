@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-8 col-sm-offset-2">
-    <h2>Créer un compte</h2>
+    <h2>Se Connecter</h2>
     <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="email">Adresse mail</label>
@@ -18,7 +18,7 @@
       </div>
       <button class="btn btn-primary"
               type="submit"
-              [disabled]="signInForm.invalid">Créer mon compte</button>
+              [disabled]="signInForm.invalid">Connexion</button>
     </form>
     <p class="text-danger">{{ errorMessage }}</p>
   </div>
