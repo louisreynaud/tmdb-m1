@@ -28,7 +28,6 @@ export class AppComponent {
   private signInbool: boolean;
   private signUpbool: boolean;
 
-
   constructor(private tmdb: TmdbService, public anAuth: AngularFireAuth, private db: AngularFireDatabase) {
     this.anAuth.user.pipe(filter( u => !!u )).subscribe( u => {
       this._user = u;
