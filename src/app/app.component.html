@@ -17,44 +17,38 @@
   </ul>
 </nav>
 
-<<<<<<< HEAD
-      <li>
-        <label>{{user.displayName}}</label><br>
-        <button (click)="logout()">Déconnection</button>
-      </li>
-
-      <li>
-        <!-- {{user.uid}} -->
-        <form  (submit)="chercheFilm(filmrecherche.value)">
-          <input #filmrecherche type="text" placeholder="Rechercher films ...">
-        </form>
-      </li>
-    </ul>
-  </nav>
-
   <app-profil-utilisateur (emitListFav)="receiveIdFav($event)" (emitListSee)="receiveIdSee($event)" [actif]="userP" [addOrRemove]="aoREvent" [user]="user" [tmdb]="gtmdb"></app-profil-utilisateur>
 
-  <div *ngIf="searchR" class="divContent">
-    <app-liste-film [listIdFav]=""  *ngIf="getIfFilms(searchR.results)"  (addOrRemoveEvent)="receiveAoR($event)" [mesFilms]="searchR.results"></app-liste-film>
-=======
-<nav *ngIf="!user" class="navbar">
-  <button (click)="login()">Connection via Google</button>
-  <button (click)="signIn()">Se Connecter</button>
-  <button (click)="signUp()">S'enregistrer</button>
-  <div *ngIf="signInBool">
-    <app-sign-in></app-sign-in>
->>>>>>> ebcd62073914d329d2b1cdbe8fce3a3c50521807
-  </div>
-  <div *ngIf="signUpBool">
-    <app-signup></app-signup>
-  </div>
-</nav>
+<div *ngIf="searchR" class="divContent">
+  <app-liste-film [listIdFav]=""  *ngIf="getIfFilms(searchR.results)"  (addOrRemoveEvent)="receiveAoR($event)" [mesFilms]="searchR.results"></app-liste-film>
+
+  <nav *ngIf="!user" class="navbar">
+
+    <button (click)="login()">Connection via Google</button>
+    <button (click)="signIn()">Se Connecter</button>
+    <button (click)="signUp()">S'enregistrer</button>
+
+    <div *ngIf="signInBool">
+
+      <app-sign-in></app-sign-in>
+
+    </div>
+
+    <div *ngIf="signUpBool">
+
+      <app-signup></app-signup>
+
+    </div>
+
+  </nav>
 
 <hr/>
 <pre *ngIf="lists">
     <!--  {{lists | async | json}} -->
 </pre>
 
-<div *ngIf="searchR">
-  <app-liste-film *ngIf="getIfFilms(searchR.results)" [mesFilms]="searchR.results"></app-liste-film>
+  <div *ngIf="searchR">
+    <app-liste-film *ngIf="getIfFilms(searchR.results)" [mesFilms]="searchR.results"></app-liste-film>
+  </div>
+
 </div>

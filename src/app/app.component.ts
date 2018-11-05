@@ -20,16 +20,13 @@ export class AppComponent {
   private film: MovieResponse;
   private searchReponse: SearchMovieResponse;
   private mytmdb: TmdbService;
-<<<<<<< HEAD
   private AoRevent: any[3];
 
   private userFavListId: number[];
   private userSeeListId: number[];
   private userPage: boolean;
-=======
   private signInbool: boolean;
   private signUpbool: boolean;
->>>>>>> ebcd62073914d329d2b1cdbe8fce3a3c50521807
 
 
   constructor(private tmdb: TmdbService, public anAuth: AngularFireAuth, private db: AngularFireDatabase) {
@@ -40,6 +37,8 @@ export class AppComponent {
       lists.push('coucou');
       this.dbData = lists.valueChanges();
       this.mytmdb = tmdb;
+      this.signUpbool = false;
+      this.signInbool = false;
     });
     setTimeout( () =>
       tmdb.init('f2082ef60dbbdc7cae271950483930f1') // Clef de TMDB
@@ -47,7 +46,6 @@ export class AppComponent {
           .then( (m: MovieResponse) => console.log('Movie 13:', this._movie = m) )
           .catch( err => console.error('Error getting movie:', err) ),
       1000 );
-<<<<<<< HEAD
   }
 
   get userFavLI() {
@@ -73,10 +71,6 @@ export class AppComponent {
 
   get gtmdb(): TmdbService {
     return this.mytmdb;
-=======
-    this.signUpbool = false;
-    this.signInbool = false;
->>>>>>> ebcd62073914d329d2b1cdbe8fce3a3c50521807
   }
 
   getFilm(): MovieResponse {
@@ -86,8 +80,6 @@ export class AppComponent {
   get movie(): MovieResponse {
     return this._movie;
   }
-
-
 
   getPath(path: string): string {
     return `https://image.tmdb.org/t/p/w500${path}`;
@@ -159,7 +151,6 @@ export class AppComponent {
     console.log(text);
     event.preventDefault();
   }
-<<<<<<< HEAD
 
   receiveAoR(ev: any[3]) {
     this.AoRevent = ev;
@@ -172,7 +163,4 @@ export class AppComponent {
   receiveIdSee(e: number[]) {
     this.userSeeListId = e;
   }
-=======
->>>>>>> ebcd62073914d329d2b1cdbe8fce3a3c50521807
 }
-// /yE5d3BUhE8hCnkMUJOo1QDoOGNz.jpg
