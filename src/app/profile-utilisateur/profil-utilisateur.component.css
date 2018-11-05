@@ -1,9 +1,4 @@
-#userDiv {￼
-G-Funk
-5.7
-438517
-￼
-
+#userDiv {
   display: flex;
   flex-direction: row;
 }
@@ -37,4 +32,7 @@ ul {
   margin-left:0;
   padding-left:0;
 }
+
+
+
 
