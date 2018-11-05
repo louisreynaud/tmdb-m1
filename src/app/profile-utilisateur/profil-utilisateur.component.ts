@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {auth, User} from 'firebase';
 import * as firebase from 'firebase';
 import {UserResponse} from '../tmdb-data/User';
@@ -8,6 +8,7 @@ import {MovieResult, SearchMovieQuery, SearchMovieResponse} from '../tmdb-data/s
 import {filter} from 'rxjs/operators';
 import {TmdbService} from '../tmdb.service';
 import {SearchPeopleQuery, SearchPeopleResponse} from '../tmdb-data/SearchPeople';
+import {forEach} from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-profil-utilisateur',
@@ -28,6 +29,9 @@ export class ProfilUtilisateurComponent implements OnInit {
     name: string
   }
 
+  @Output() emitListFav = new EventEmitter<number[]>();
+  @Output() emitListSee = new EventEmitter<number[]>();
+
   constructor() {
     this.listTosee = [];
     this.listFav = [];
@@ -42,6 +46,7 @@ export class ProfilUtilisateurComponent implements OnInit {
   @Input() set user(u: User) {
     this.authUser = u;
   }
+
   @Input()
   set actif(state: boolean) {
     this.active = state;
@@ -71,24 +76,57 @@ export class ProfilUtilisateurComponent implements OnInit {
       }
     }
   }
+
+  get listIdSee() {
+    const seeListId = [];
+
+    for (let i = 0; i < this.seeList.length; i++) {
+      seeListId.push(this.seeList[i].id);
+    }
+
+    return seeListId;
+  }
+
+  get listIdFav() {
+    const favListId = [];
+
+    for (let i = 0; i < this.favList.length; i++) {
+      favListId.push(this.favList[i].id);
+    }
+
+    return favListId;
+  }
+
   get onAuthUser() {
-    console.log(this.authUser);
     return this.authUser;
   }
+
   addMovieToSee(m: MovieResult) {
     this.listTosee.push(m);
+    this.emitListSee.emit(this.listIdSee);
   }
 
   removeMovieToSee(m: MovieResult) {
     this.listTosee.splice(this.listTosee.indexOf(m), 1);
+    this.emitListSee.emit(this.listIdSee);
   }
 
   addMovieFav(m: MovieResult) {
     this.listFav.push(m);
+    this.emitListFav.emit(this.listIdFav);
   }
 
   removeMovieFav(m: MovieResult) {
     this.listFav.splice(this.listFav.indexOf(m), 1);
+    this.emitListFav.emit(this.listIdFav);
+  }
+
+  get favList() {
+    return this.listFav;
+  }
+
+  get seeList() {
+    return this.listTosee;
   }
 
   ngOnInit() {
@@ -108,6 +146,7 @@ export class ProfilUtilisateurComponent implements OnInit {
           .catch(err => console.error('Error getting People:', err)),
       1000);
   }
+
   getFavAct() {
     this.cherchePerson();
     console.log(this.searchReponse);
@@ -116,6 +155,7 @@ export class ProfilUtilisateurComponent implements OnInit {
       name: null,
     };
   }
+
   get favActor() {
     return this.myFavActor;
   }

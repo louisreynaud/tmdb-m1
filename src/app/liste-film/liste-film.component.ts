@@ -7,10 +7,33 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 })
 export class ListeFilmComponent implements OnInit {
 
-  constructor() { }
-
   @Input() mesFilms: any;
+  idFav: number[];
+  idSee: number[];
   @Output() addOrRemoveEvent = new EventEmitter<any[3]>();
+
+  constructor() {
+    this.idFav = [];
+    this.idSee = [];
+  }
+
+  @Input()
+  set listIdFav(list: number[]) {
+    this.idFav = list;
+  }
+
+  @Input()
+  set listIdSee(list: number[]) {
+    this.idSee = list;
+  }
+
+  get idFavList() {
+    return this.idFav;
+  }
+
+  get idSeeList() {
+    return this.idSee;
+  }
 
   receiveAoR($event) {
     this.addOrRemoveEvent.emit($event);

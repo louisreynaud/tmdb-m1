@@ -1,5 +1,5 @@
-<div *ngIf="activ">
-  Profil de {{onAuthUser.displayName}}
+<div *ngIf="activ" id="userDiv">
+
   <div id="FavActor">
     <ul>
       <li>Mon acteur préféré:</li>
@@ -8,6 +8,12 @@
     </ul>
   </div>
 
-  <div id="userLists"></div>
+  <div id="userLists">
+
+    <app-liste-film [listIdFav]="listIdFav" [listIdSee]="listIdSee" [mesFilms]="favList"></app-liste-film>
+
+    <app-liste-film [listIdFav]="listIdFav" [listIdSee]="listIdSee" [mesFilms]="seeList"></app-liste-film>
+
+  </div>
 
 </div>

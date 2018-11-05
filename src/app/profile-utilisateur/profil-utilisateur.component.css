@@ -1,8 +1,40 @@
+#userDiv {￼
+G-Funk
+5.7
+438517
+￼
+
+  display: flex;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 1200px) {
+  #FavActor {
+    flex: 25%;
+    max-width: 25%;
+  }
+
+  #userLists {
+    flex: 75%;
+    max-width: 75%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #FavActor {
+    flex: 10%;
+    max-width: 10%;
+  }
+
+  #userLists {
+    flex: 90%;
+    max-width: 90%;
+  }
+}
+
 ul {
   list-style:none;
   margin-left:0;
   padding-left:0;
 }
-li {
-  margin-bottom:15px;/* à adapter */
-}
+

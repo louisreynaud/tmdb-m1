@@ -23,6 +23,8 @@ export class AppComponent {
   private mytmdb: TmdbService;
   private AoRevent: any[3];
 
+  private userFavListId: number[];
+  private userSeeListId: number[];
   private userPage: boolean;
 
 
@@ -42,6 +44,14 @@ export class AppComponent {
           .then( (m: MovieResponse) => console.log('Movie 13:', this._movie = m) )
           .catch( err => console.error('Error getting movie:', err) ),
       1000 );
+  }
+
+  get userFavLI() {
+    return this.userFavListId;
+  }
+
+  get userSeeLI() {
+    return this.userSeeListId;
   }
 
   goToUserPage() {
@@ -125,5 +135,13 @@ export class AppComponent {
 
   receiveAoR(ev: any[3]) {
     this.AoRevent = ev;
+  }
+
+  receiveIdFav(e: number[]) {
+    this.userFavListId = e;
+  }
+
+  receiveIdSee(e: number[]) {
+    this.userSeeListId = e;
   }
 }

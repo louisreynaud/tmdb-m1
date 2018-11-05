@@ -4,12 +4,19 @@
   flex: 1;
 }
 
+.navbar {
+  max-height: 100px;
+  height: 100%;
+}
+
 .navbar ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: #333;
+  height: 100%;
+  max-height: 100px;
 }
 
 .liPhotoUser {
@@ -36,4 +43,15 @@
   padding: 0;
   border: 0;
   display: flex;
+  max-height: 72px;
+}
+
+@media screen and (min-width: 1200px) {
+  .btnUser {
+    width: 72px;
+  }
+}
+
+.btnUser img {
+  max-height: 72px;
 }
