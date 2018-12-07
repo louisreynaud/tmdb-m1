@@ -1,17 +1,6 @@
 <div class="mainDiv">
 
   <div class="ligneDuHaut">
-
-    <div class="titleHaut">
-      {{monFilm.title}}
-    </div>
-
-    <div class="noteHaut">
-      {{monFilm.vote_average}}
-      <br>
-      {{monFilm.id}}
-    </div>
-
   </div>
 
   <div *ngIf="!(monFilm.poster_path)" class="divImg">
@@ -29,17 +18,8 @@
   </div>
 
   <div class="ligneDuBas">
-
-    <div class="divToSee" *ngIf="showToSeeB">
-      <button class="btnSee" (click)="addSee()">
-        <img src="https://image.flaticon.com/icons/svg/25/25186.svg">
-      </button>
-    </div>
-
-    <div class="divToSee" *ngIf="showToUnseeB">
-      <button class="btnSee" (click)="removeSee()">
-        <img src="https://image.flaticon.com/icons/svg/25/25674.svg">
-      </button>
+    <div class="titleHaut">
+      {{monFilm.title}}
     </div>
 
     <div class="divFav" *ngIf="showToFavB">

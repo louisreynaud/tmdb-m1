@@ -1,16 +1,21 @@
 <div *ngIf="activ" id="userDiv">
+  <div id="menuListe">
+    <p> mes Playlist</p>
 
-  <div id="FavActor">
-    <ul>
-      <li>Mon acteur préféré:</li>
-      <li><img class="photoUser" [src]="favActor.photo" /></li>
-      <li>{{favActor.name}}</li>
-    </ul>
   </div>
+
 
   <div id="userLists">
 
     <app-liste-film [listIdFav]="listIdFav" [listIdSee]="listIdSee" [mesFilms]="favList"></app-liste-film>
+    <app-liste-film [listIdFav]="listIdFav" [listIdSee]="listIdSee" [mesFilms]="favList"></app-liste-film>
+    <app-liste-film [listIdFav]="listIdFav" [listIdSee]="listIdSee" [mesFilms]="favList"></app-liste-film>
+    <app-liste-film [listIdFav]="listIdFav" [listIdSee]="listIdSee" [mesFilms]="favList"></app-liste-film>
+    <app-liste-film [listIdFav]="listIdFav" [listIdSee]="listIdSee" [mesFilms]="favList"></app-liste-film>
+    <app-liste-film [listIdFav]="listIdFav" [listIdSee]="listIdSee" [mesFilms]="favList"></app-liste-film>
+    <app-liste-film [listIdFav]="listIdFav" [listIdSee]="listIdSee" [mesFilms]="favList"></app-liste-film>
+    <app-liste-film [listIdFav]="listIdFav" [listIdSee]="listIdSee" [mesFilms]="favList"></app-liste-film>
+
 
     <app-liste-film [listIdFav]="listIdFav" [listIdSee]="listIdSee" [mesFilms]="seeList"></app-liste-film>
 

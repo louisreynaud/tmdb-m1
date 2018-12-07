@@ -10,10 +10,18 @@
   }
 
   #userLists {
+    float: right;
     flex: 75%;
     max-width: 75%;
   }
+
+  #menuListe{
+    float: left;
+    background-color: aqua;
+    top:11.3%;
+  }
 }
+
 
 @media screen and (min-width: 1200px) {
   #FavActor {
@@ -22,8 +30,16 @@
   }
 
   #userLists {
+    float: right;
     flex: 90%;
     max-width: 90%;
+  }
+
+  #menuListe{
+    float: left;
+    background-color: aqua;
+
+
   }
 }
 

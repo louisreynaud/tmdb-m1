@@ -1,6 +1,4 @@
 .mainDiv {
-  /*height: 100%;*/
-  border: 1px solid;
   width: 12em;
 }
 
@@ -15,6 +13,7 @@
   white-space: normal;
   word-break: break-word;
   font-size: 0.9em;
+  margin-left: 4%;
   overflow: hidden;
 }
 
@@ -75,6 +74,7 @@
 
 .divFav {
   width: 50%;
+
 }
 
 .btnSee {
@@ -88,9 +88,9 @@
 }
 
 .btnFav {
-  height: 90%;
+  height: 30px;
   width: 40%;
-  margin-right: 3px;
+  margin-right: 12%;
   float: right;
 }
 

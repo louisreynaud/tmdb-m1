@@ -1,8 +1,9 @@
 <!-- Barre de navigation du haut -->
+<div>
 <nav *ngIf="user" class="navbar">
   <ul>
     <li class="liPhotoUser">
-      <img class="photoUser" [src]="user.photoURL" />
+      <img class="photoUser" [src]="user.photoURL" (click)="goToUserPage()"/>
     </li>
     <li>
       <label>{{user.displayName}}</label><br>
@@ -16,12 +17,11 @@
     </li>
   </ul>
 </nav>
+</div>
 
   <app-profil-utilisateur (emitListFav)="receiveIdFav($event)" (emitListSee)="receiveIdSee($event)" [actif]="userP" [addOrRemove]="aoREvent" [user]="user" [tmdb]="gtmdb"></app-profil-utilisateur>
 
-<div *ngIf="searchR" class="divContent">
-  <app-liste-film [listIdFav]=""  *ngIf="getIfFilms(searchR.results)"  (addOrRemoveEvent)="receiveAoR($event)" [mesFilms]="searchR.results"></app-liste-film>
-</div>
+
 
 <nav *ngIf="!user" class="navbar">
 
@@ -42,5 +42,9 @@
   </div>
 
 </nav>
+
+<div *ngIf="searchR" class="divContent">
+  <app-liste-film [listIdFav]=""  *ngIf="getIfFilms(searchR.results)"  (addOrRemoveEvent)="receiveAoR($event)" [mesFilms]="searchR.results"></app-liste-film>
+</div>
 
 <hr/>

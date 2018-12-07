@@ -10,6 +10,7 @@ import {TmdbService} from '../tmdb.service';
 import {SearchPeopleQuery, SearchPeopleResponse} from '../tmdb-data/SearchPeople';
 import {forEach} from '@angular/router/src/utils/collection';
 
+
 @Component({
   selector: 'app-profil-utilisateur',
   templateUrl: './profil-utilisateur.component.html',

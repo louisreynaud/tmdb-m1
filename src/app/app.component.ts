@@ -103,6 +103,10 @@ export class AppComponent {
     this._user = undefined;
   }
 
+  seeFilmId() {
+    console.log(this.userFavListId);
+  }
+
   get user(): User {
     return this._user;
   }
