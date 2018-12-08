@@ -15,7 +15,7 @@ import {ProfilUtilisateurComponent} from './profile-utilisateur/profil-utilisate
 import { SignUpComponent } from './signup/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import {AuthService} from './app.service.auth';
-
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -27,6 +27,7 @@ import {AuthService} from './app.service.auth';
     SignInComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
