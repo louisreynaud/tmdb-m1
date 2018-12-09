@@ -20,8 +20,6 @@ export class AfficheFilmComponent implements OnInit {
   private showToUnfav: boolean;
 
   constructor() {
-    this.idFav = [];
-    this.idSee = [];
   }
 
   ngOnInit() {
@@ -47,6 +45,8 @@ export class AfficheFilmComponent implements OnInit {
     }
   }
 
+
+
   get showToSeeB() {
     return this.showToSee;
   }
@@ -56,11 +56,12 @@ export class AfficheFilmComponent implements OnInit {
   }
 
   get showToFavB() {
-    return this.showToFav;
+    console.log(this.isInFav())
+    return (this.showToFav && !this.isInFav());
   }
 
   get showToUnfavB() {
-    return this.showToUnfav;
+    return (this.showToUnfav || this.isInFav());
   }
 
   sendMessage(type: string, list: string) {
@@ -89,6 +90,17 @@ export class AfficheFilmComponent implements OnInit {
     this.showToFav = true;
     this.showToUnfav = false;
     this.sendMessage('remove', 'fav');
+  }
+
+  isInFav(): boolean {
+    console.log(this.idFav);
+    for (const id of this.idFav) {
+      if (this.monFilm.id === id) {
+        return true;
+      } else {
+        return false;
+      }
+    }
   }
 
   getDesc(): string {

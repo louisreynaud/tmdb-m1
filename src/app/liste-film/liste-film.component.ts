@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
+
 @Component({
   selector: 'app-liste-film',
   templateUrl: './liste-film.component.html',

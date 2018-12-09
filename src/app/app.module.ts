@@ -16,7 +16,7 @@ import { SignUpComponent } from './signup/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import {AuthService} from './app.service.auth';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import {MatMenuModule} from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +28,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserAnimationsModule,
+    MatMenuModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,

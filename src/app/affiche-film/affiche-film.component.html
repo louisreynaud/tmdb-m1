@@ -22,6 +22,12 @@
       {{monFilm.title}}
     </div>
 
+    <button mat-button [matMenuTriggerFor]="menu">...</button>
+    <mat-menu #menu="matMenu">
+      <div ngFor=""></div>
+      <li></li>
+    </mat-menu>
+
     <div class="divFav" *ngIf="showToFavB">
       <button class="btnFav" (click)="addFav()">
         <img src="https://image.flaticon.com/icons/svg/126/126471.svg">
