@@ -6,17 +6,7 @@
 
 
   <div id="userLists">
-
-    <app-liste-film [listIdFav]="listIdFav" [listIdSee]="listIdSee" [mesFilms]="favList"></app-liste-film>
-    <app-liste-film [listIdFav]="listIdFav" [listIdSee]="listIdSee" [mesFilms]="favList"></app-liste-film>
-    <app-liste-film [listIdFav]="listIdFav" [listIdSee]="listIdSee" [mesFilms]="favList"></app-liste-film>
-    <app-liste-film [listIdFav]="listIdFav" [listIdSee]="listIdSee" [mesFilms]="favList"></app-liste-film>
-    <app-liste-film [listIdFav]="listIdFav" [listIdSee]="listIdSee" [mesFilms]="favList"></app-liste-film>
-    <app-liste-film [listIdFav]="listIdFav" [listIdSee]="listIdSee" [mesFilms]="favList"></app-liste-film>
-    <app-liste-film [listIdFav]="listIdFav" [listIdSee]="listIdSee" [mesFilms]="favList"></app-liste-film>
-    <app-liste-film [listIdFav]="listIdFav" [listIdSee]="listIdSee" [mesFilms]="favList"></app-liste-film>
-
-
+    <app-liste-film *ngFor="let list of lists" [listIdFav]="listIdFav" [listIdSee]="listIdSee" [mesFilms]="list"></app-liste-film>
     <app-liste-film [listIdFav]="listIdFav" [listIdSee]="listIdSee" [mesFilms]="seeList"></app-liste-film>
 
   </div>

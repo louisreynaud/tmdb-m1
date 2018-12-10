@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {AfterContentChecked, AfterViewInit, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {auth, User} from 'firebase';
 import * as firebase from 'firebase';
 import {UserResponse} from '../tmdb-data/User';
@@ -9,6 +9,7 @@ import {filter} from 'rxjs/operators';
 import {TmdbService} from '../tmdb.service';
 import {SearchPeopleQuery, SearchPeopleResponse} from '../tmdb-data/SearchPeople';
 import {forEach} from '@angular/router/src/utils/collection';
+import {MovieResponse} from '../tmdb-data/Movie';
 
 
 @Component({
@@ -16,14 +17,17 @@ import {forEach} from '@angular/router/src/utils/collection';
   templateUrl: './profil-utilisateur.component.html',
   styleUrls: ['./profil-utilisateur.component.css']
 })
-export class ProfilUtilisateurComponent implements OnInit {
+export class ProfilUtilisateurComponent implements OnInit{
 
   private database = firebase.database();
   private active: boolean;
   private searchReponse: SearchPeopleResponse;
   private mytmdb: TmdbService;
+  private movie: MovieResponse;
+  private myLists: MovieResponse[][];
   private listTosee: MovieResult[];
   private listFav: MovieResult[];
+  private films: MovieResponse[];
   private authUser: User;
   private myFavActor: {
     photo: string,
@@ -33,9 +37,11 @@ export class ProfilUtilisateurComponent implements OnInit {
   @Output() emitListFav = new EventEmitter<number[]>();
   @Output() emitListSee = new EventEmitter<number[]>();
 
+
   constructor() {
     this.listTosee = [];
     this.listFav = [];
+    this.myLists = [];
     this.active = false;
     this.myFavActor = this.getFavAct();
   }
@@ -77,7 +83,9 @@ export class ProfilUtilisateurComponent implements OnInit {
       }
     }
   }
-
+  get lists() {
+    return this.myLists;
+  }
   get listIdSee() {
     const seeListId = [];
 
@@ -131,6 +139,7 @@ export class ProfilUtilisateurComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getBasePlaylist();
   }
 
   cherchePerson() {
@@ -160,4 +169,32 @@ export class ProfilUtilisateurComponent implements OnInit {
   get favActor() {
     return this.myFavActor;
   }
+  getFilms(num: number) {
+    this.films = [];
+    for (let i = 0 ; i < num ; i++) {
+      this.films.push(this.chercheFilm());
+    }
+    console.log(this.films);
+    return this.films;
+  }
+  getBasePlaylist() {
+    this.myLists.push(this.listFav);
+    this.myLists.push(this.getFilms(10));
+    this.myLists.push(this.getFilms(10));
+    this.myLists.push(this.getFilms(10));
+    this.myLists.push(this.getFilms(10));
+  }
+
+  chercheFilm() {
+    this.movie = null;
+    const i = Math.floor(Math.random() * 300);
+    setTimeout( () =>
+      this.mytmdb.init('f2082ef60dbbdc7cae271950483930f1') // Clef de TMDB
+        .getMovie(i)
+        .then( (m: MovieResponse) => this.movie = m)
+        .catch( err => console.error('Error getting movie:', err) ), 1000 );
+    console.log('un film :', this.movie);
+    return this.movie;
+  }
+
 }

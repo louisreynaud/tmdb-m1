@@ -18,8 +18,13 @@ export class AfficheFilmComponent implements OnInit {
   private showToUnsee: boolean;
   private showToFav: boolean;
   private showToUnfav: boolean;
+  private inPlaylist: boolean[];
 
   constructor() {
+    this.inPlaylist = [];
+    for (let i = 0; i < 5 ; i++) {
+      this.inPlaylist.push(false);
+    }
   }
 
   ngOnInit() {
@@ -56,7 +61,6 @@ export class AfficheFilmComponent implements OnInit {
   }
 
   get showToFavB() {
-    console.log(this.isInFav())
     return (this.showToFav && !this.isInFav());
   }
 
@@ -93,7 +97,6 @@ export class AfficheFilmComponent implements OnInit {
   }
 
   isInFav(): boolean {
-    console.log(this.idFav);
     for (const id of this.idFav) {
       if (this.monFilm.id === id) {
         return true;
@@ -110,5 +113,21 @@ export class AfficheFilmComponent implements OnInit {
   getConsole(text: string) {
     console.log(text);
     event.preventDefault();
+  }
+
+  addInPlaylist(number: number) {
+    this.inPlaylist[number - 1] = true;
+  }
+  removeFromPlaylist(number: number) {
+    this.inPlaylist[number - 1] = false;
+  }
+
+
+  isInPlaylist(number: number) {
+    return this.inPlaylist[number - 1];
+  }
+
+  addAPlaylist(text: string) {
+    console.log('nouvelle playlist "', text, '"crée');
   }
 }
