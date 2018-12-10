@@ -22,41 +22,42 @@
       {{monFilm.title}}
     </div>
 
-    <button mat-button [matMenuTriggerFor]="menu">...</button>
-    <mat-menu #menu="matMenu" >
-        <mat-list (click)="$event.stopPropagation();">
-          <mat-list-item>Ajouter à une playlist : </mat-list-item>
-          <mat-divider></mat-divider>
-          <mat-list-item>Playlist n°1    <mat-icon *ngIf="!isInPlaylist(1)" (click) ="addInPlaylist(1)" id="mat-icons">add_circle</mat-icon>
-                                          <mat-icon *ngIf="isInPlaylist(1)" (click) ="removeFromPlaylist(1)">check_box</mat-icon>
-          </mat-list-item>
-          <mat-divider></mat-divider>
-          <mat-list-item>Playlist n°2    <mat-icon *ngIf="!isInPlaylist(2)" (click) ="addInPlaylist(2)">add_circle</mat-icon>
-                                          <mat-icon *ngIf="isInPlaylist(2)" (click) ="removeFromPlaylist(2)">check_box</mat-icon>
-          </mat-list-item>
-          <mat-divider></mat-divider>
-          <mat-list-item>Playlist n°3    <mat-icon *ngIf="!isInPlaylist(3)" (click) ="addInPlaylist(3)">add_circle</mat-icon>
-                                          <mat-icon *ngIf="isInPlaylist(3)" (click) ="removeFromPlaylist(3)">check_box</mat-icon>
-          </mat-list-item>
-          <mat-divider></mat-divider>
-          <mat-list-item>Playlist n°4    <mat-icon *ngIf="!isInPlaylist(4)" (click) ="addInPlaylist(4)">add_circle</mat-icon>
-                                          <mat-icon *ngIf="isInPlaylist(4)" (click) ="removeFromPlaylist(4)">check_box</mat-icon>
-          </mat-list-item>
-          <mat-divider></mat-divider>
-          <mat-list-item>Playlist n°5    <mat-icon *ngIf="!isInPlaylist(5)" (click) ="addInPlaylist(5)">add_circle</mat-icon>
-                                          <mat-icon *ngIf="isInPlaylist(5)" (click) ="removeFromPlaylist(5)">check_box</mat-icon>
-          </mat-list-item>
-          <mat-divider></mat-divider>
-          <mat-list-item>Ajouter une nouvelle Playlist :</mat-list-item>
-          <mat-divider></mat-divider>
-          <mat-list-item> <input matInput #newPlaylist type="text" placeholder="Nouvelle Playlist">
-                          <mat-icon (click) ="addAPlaylist(newPlaylist.value)">add_circle</mat-icon>
+    <div class="divFav">
+      <button class="btnFav" mat-button [matMenuTriggerFor]="menu">...</button>
+      <mat-menu #menu="matMenu" >
+          <mat-list (click)="$event.stopPropagation();">
+            <mat-list-item>Ajouter à une playlist : </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Playlist n°1    <mat-icon *ngIf="!isInPlaylist(1)" (click) ="addInPlaylist(1)" id="mat-icons">add_circle</mat-icon>
+                                            <mat-icon *ngIf="isInPlaylist(1)" (click) ="removeFromPlaylist(1)">check_box</mat-icon>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Playlist n°2    <mat-icon *ngIf="!isInPlaylist(2)" (click) ="addInPlaylist(2)">add_circle</mat-icon>
+                                            <mat-icon *ngIf="isInPlaylist(2)" (click) ="removeFromPlaylist(2)">check_box</mat-icon>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Playlist n°3    <mat-icon *ngIf="!isInPlaylist(3)" (click) ="addInPlaylist(3)">add_circle</mat-icon>
+                                            <mat-icon *ngIf="isInPlaylist(3)" (click) ="removeFromPlaylist(3)">check_box</mat-icon>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Playlist n°4    <mat-icon *ngIf="!isInPlaylist(4)" (click) ="addInPlaylist(4)">add_circle</mat-icon>
+                                            <mat-icon *ngIf="isInPlaylist(4)" (click) ="removeFromPlaylist(4)">check_box</mat-icon>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Playlist n°5    <mat-icon *ngIf="!isInPlaylist(5)" (click) ="addInPlaylist(5)">add_circle</mat-icon>
+                                            <mat-icon *ngIf="isInPlaylist(5)" (click) ="removeFromPlaylist(5)">check_box</mat-icon>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Ajouter une nouvelle Playlist :</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item> <input matInput #newPlaylist type="text" placeholder="Nouvelle Playlist">
+                            <mat-icon (click) ="addAPlaylist(newPlaylist.value)">add_circle</mat-icon>
 
-          </mat-list-item>
-        </mat-list>
-    </mat-menu>
-
-    <div class="divFav" *ngIf="showToFavB">
+            </mat-list-item>
+          </mat-list>
+      </mat-menu>
+    </div>
+   <!-- <div class="divFav" *ngIf="showToFavB">
       <button class="btnFav" (click)="addFav()">
         <img src="https://image.flaticon.com/icons/svg/126/126471.svg">
       </button>
@@ -66,7 +67,7 @@
       <button class="btnFav" (click)="removeFav()">
         <img src="https://image.flaticon.com/icons/svg/60/60993.svg">
       </button>
-    </div>
+    </div>-->
 
   </div>
 

@@ -116,6 +116,7 @@ export class AppComponent {
   }
 
   get searchR(): SearchMovieResponse {
+    this.userPage = false;
     return this.searchReponse;
   }
 

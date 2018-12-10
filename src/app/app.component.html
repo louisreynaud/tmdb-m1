@@ -11,9 +11,14 @@
     </li>
     <li>
       <!-- {{user.uid}} -->
+      <br>
       <form  (submit)="chercheFilm(filmrecherche.value)">
         <input #filmrecherche type="text" placeholder="Rechercher films ...">
       </form>
+    </li>
+    <li>
+      <br>
+      <button (click)="goToUserPage()">Mes Playlists</button>
     </li>
   </ul>
 </nav>
