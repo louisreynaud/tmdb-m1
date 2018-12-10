@@ -116,7 +116,7 @@ export class AppComponent {
   }
 
   get searchR(): SearchMovieResponse {
-    this.userPage = false;
+   // this.userPage = false;
     return this.searchReponse;
   }
 
@@ -129,6 +129,7 @@ export class AppComponent {
   }
 
   chercheFilm(name: string) {
+    this.userPage = false;
     this._movie = null;
     setTimeout( () =>
         this.mytmdb.init('f2082ef60dbbdc7cae271950483930f1') // Clef de TMDB

@@ -1,14 +1,43 @@
 <div *ngIf="activ" id="userDiv">
   <div id="menuListe">
-    <p> mes Playlist</p>
-
+    <ul>
+      <li>
+        <p> mes Playlist : </p>
+      </li>
+      <li>
+       <span (click)='GoToPlaylist("playlist1")'>Playlist 1</span>
+      </li>
+      <li>
+        <span (click)='GoToPlaylist("playlist2")'>Playlist 2</span>
+      </li>
+      <li>
+        <span (click)='GoToPlaylist("playlist3")'>Playlist 3</span>
+      </li>
+      <li>
+        <span (click)='GoToPlaylist("playlist4")'>Playlist 4</span>
+      </li>
+      <li>
+        <span (click)='GoToPlaylist("playlist5")'>Playlist 5</span>
+      </li>
+    </ul>
   </div>
 
 
   <div id="userLists">
-    <app-liste-film *ngFor="let list of lists" [listIdFav]="listIdFav" [listIdSee]="listIdSee" [mesFilms]="list"></app-liste-film>
-    <app-liste-film [listIdFav]="listIdFav" [listIdSee]="listIdSee" [mesFilms]="seeList"></app-liste-film>
-
+    <label>Playlist 1 :</label>
+    <app-liste-film [listIdFav]="listIdFav" [listIdSee]="listIdSee" [mesFilms]="searchR.results"></app-liste-film>
+    <br>
+    <label>Playlist 2 :</label>
+    <app-liste-film [listIdFav]="listIdFav" [listIdSee]="listIdSee" [mesFilms]="searchR.results"></app-liste-film>
+    <br>
+    <label>Playlist 3 :</label>
+    <app-liste-film [listIdFav]="listIdFav" [listIdSee]="listIdSee" [mesFilms]="searchR.results"></app-liste-film>
+    <br>
+    <label>Playlist 4 :</label>
+    <app-liste-film [listIdFav]="listIdFav" [listIdSee]="listIdSee" [mesFilms]="searchR.results"></app-liste-film>
+    <br>
+    <label>Playlist 5 :</label>
+    <app-liste-film [listIdFav]="listIdFav" [listIdSee]="listIdSee" [mesFilms]="searchR.results"></app-liste-film>
   </div>
 
 </div>

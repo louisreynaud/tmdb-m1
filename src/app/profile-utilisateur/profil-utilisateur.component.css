@@ -33,6 +33,7 @@
     float: right;
     flex: 90%;
     max-width: 90%;
+    overflow-y: -moz-scrollbars-horizontal;
   }
 
   #menuListe{
